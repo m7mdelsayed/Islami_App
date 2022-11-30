@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/quran/Sura_details.dart';
-import 'package:islami_app/quran/sura_name_args.dart';
+import 'package:islami_app/quran/sura_details/Sura_details.dart';
+import 'package:islami_app/quran/sura_details/sura_name_args.dart';
 
 class SuraNameWidget extends StatelessWidget {
   String title;
@@ -20,7 +20,7 @@ class SuraNameWidget extends StatelessWidget {
         width: 80,
         child: Text(
           title,
-          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+          style: Theme.of(context).textTheme.headline6
         ),
       ),
     );

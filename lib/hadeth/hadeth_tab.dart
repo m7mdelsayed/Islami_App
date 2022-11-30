@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islami_app/hadeth/hadeth_model.dart';
+import 'package:islami_app/hadeth/hadeth_details/hadeth_model.dart';
 
 import 'hadeth_widget.dart';
 
@@ -32,28 +32,28 @@ class _HadethTabState extends State<HadethTab> {
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: 2,
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).accentColor,
                 ),
-                const Text(
+                 Text(
                   'الأحاديث',
-                  style: TextStyle(fontSize: 24),
+                  style: Theme.of(context).textTheme.headline4,
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: 2,
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).accentColor,
                 ),
                 Expanded(
                   flex: 5,
                   child: ListView.separated(
                       itemBuilder: (context, index) {
-                        return HadethWidget(allHadethItems[index].title,index,allHadethItems[index].content);
+                        return HadethWidget(allHadethItems[index]);
                       },
                       separatorBuilder: (context, index) {
                         return Container(
                           width: MediaQuery.of(context).size.width,
                           height: 1,
-                          color: Theme.of(context).primaryColor,
+                          color: Theme.of(context).accentColor,
                           margin: const EdgeInsets.symmetric(horizontal: 25),
                         );
                       },
@@ -64,12 +64,12 @@ class _HadethTabState extends State<HadethTab> {
     );
   }
   List<HadethModel> allHadeth = [];
-  Future<void> readHadeth() async {
-    var fileContent = await rootBundle.loadString('assets/files/ahadeth.txt');
-    var allHadethContent = fileContent.trim().split('#');
+  void readHadeth() async {
+    String fileContent = await rootBundle.loadString('assets/files/ahadeth.txt');
+    List<String> allHadethContent = fileContent.trim().split('#');
     for (int i = 0; i < allHadethContent.length; i++) {
-      String singleHadethContent = allHadethContent[i];
-      var singleHadethLines = singleHadethContent.trim().split('\n');
+      String singleHadeth = allHadethContent[i];
+      List<String> singleHadethLines = singleHadeth.trim().split('\n');
       String title = singleHadethLines[0];
       singleHadethLines.removeAt(0);
       String content = singleHadethLines.join('\n');

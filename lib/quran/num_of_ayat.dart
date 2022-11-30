@@ -10,7 +10,7 @@ class NumOfAyat extends StatelessWidget {
       width: 40,
       child: Text(
         title,
-        style: const TextStyle(fontSize: 20),
+        style: Theme.of(context).textTheme.headline6,
       ),
     );
   }

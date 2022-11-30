@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islami_app/quran/sura_name_args.dart';
-import 'package:islami_app/quran/verse_widget.dart';
+import 'package:islami_app/providers/settings_provider.dart';
+import 'package:islami_app/quran/sura_details/sura_name_args.dart';
+import 'package:islami_app/quran/sura_details/verse_widget.dart';
+import 'package:provider/provider.dart';
 
 class SuraDetails extends StatefulWidget {
   static const routeName = 'sura_details';
@@ -19,10 +21,11 @@ class _SuraDetailsState extends State<SuraDetails> {
     if(verses.isEmpty) {
       readFile(args.index+1);
     }
+    var settingsProvider=Provider.of<SettingsProvider>(context);
     return Container(
-      decoration: const BoxDecoration(
+      decoration:  BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/main_background.png'),
+          image: AssetImage(settingsProvider.getMainBackgroundImage()),
           fit: BoxFit.fill,
         ),
       ),
@@ -32,20 +35,19 @@ class _SuraDetailsState extends State<SuraDetails> {
         ),
         body: Column(
           children: [
-            const Center(
-              child: Text('بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ',style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.w500,
-                color: Colors.black,
-              ),
+             Center(
+              child: Text('بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ',style: Theme.of(context).textTheme.headline4,
               ),
             ),
             Expanded(
               child: Card(
-                color: Colors.white,
                 elevation: 10,
                 margin: const EdgeInsets.symmetric(horizontal: 15,vertical: 30),
                 shape: RoundedRectangleBorder(
+                  side: BorderSide(
+                    color: Theme.of(context).accentColor,
+                    width: 2,
+                  ),
                   borderRadius: BorderRadius.circular(18),
                 ),
                 child: SizedBox(
@@ -58,7 +60,7 @@ class _SuraDetailsState extends State<SuraDetails> {
                       margin: const EdgeInsets.symmetric(horizontal: 25),
                       width: MediaQuery.of(context).size.width,
                       height: 1,
-                      color: Theme.of(context).primaryColor,
+                      color: Theme.of(context).accentColor,
                     );
                   }, itemCount: verses.length)
                 ),

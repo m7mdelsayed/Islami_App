@@ -36,19 +36,19 @@ List<String>numOfAyah=['7','286','200','176','120','165','206','75','129',
           Container(
             width: MediaQuery.of(context).size.width,
             height: 2,
-            color: Theme.of(context).primaryColor,
+            color: Theme.of(context).accentColor,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: const [
-              Text('عدد الآيات',style: TextStyle(fontSize: 24),),
-              Text('إسم السورة',style: TextStyle(fontSize: 24),),
+            children:  [
+              Text('عدد الآيات',style:Theme.of(context).textTheme.headline4,),
+              Text('إسم السورة',style: Theme.of(context).textTheme.headline4,),
             ],
           ),
           Container(
             width: MediaQuery.of(context).size.width,
             height: 2,
-            color: Theme.of(context).primaryColor,
+            color: Theme.of(context).accentColor,
           ),
           Expanded(
             flex: 5,
@@ -60,7 +60,7 @@ List<String>numOfAyah=['7','286','200','176','120','165','206','75','129',
                   Container(
                     width: 2,
                     height: 41,
-                    color: Theme.of(context).primaryColor,
+                    color: Theme.of(context).accentColor,
                   ),
                   SuraNameWidget(suraName[index],index),
                 ],);
@@ -69,7 +69,7 @@ List<String>numOfAyah=['7','286','200','176','120','165','206','75','129',
                 margin: const EdgeInsets.symmetric(horizontal: 25),
                 width: MediaQuery.of(context).size.width,
                 height: 1,
-                color: Theme.of(context).primaryColor,
+                color: Theme.of(context).accentColor,
               );
             },
                 itemCount: suraName.length),

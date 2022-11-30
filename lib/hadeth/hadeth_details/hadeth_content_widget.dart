@@ -9,11 +9,8 @@ HadethContentWidget(this.content);
       padding: const EdgeInsets.symmetric(vertical: 8,horizontal: 25),
       child: Text(
         content,
-        style: const TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.w500,
-        ),
-        textAlign: TextAlign.center,
+        style: Theme.of(context).textTheme.headline6,
+      textAlign: TextAlign.center,
         textDirection: TextDirection.rtl,
       ),
     );

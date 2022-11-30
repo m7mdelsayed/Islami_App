@@ -1,0 +1,15 @@
+{
+"quran": "القرآن الكريم",
+"quran_single": "القرآن",
+"hadeth":"الحديث الشريف",
+"hadeth_single":"الحديث",
+"tasbeh":"التسبيح",
+"radio":"الراديو",
+"settings":"الإعدادات",
+"theme":"السمه",
+"language":"اللغة",
+"light":"فاتح",
+"dark":"داكن",
+"english":"الإنجليزية",
+"arabic":"العربية"
+}
