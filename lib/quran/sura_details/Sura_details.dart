@@ -4,6 +4,8 @@ import 'package:islami_app/providers/settings_provider.dart';
 import 'package:islami_app/quran/sura_details/sura_name_args.dart';
 import 'package:islami_app/quran/sura_details/verse_widget.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class SuraDetails extends StatefulWidget {
   static const routeName = 'sura_details';
@@ -31,7 +33,7 @@ class _SuraDetailsState extends State<SuraDetails> {
       ),
       child: Scaffold(
         appBar: AppBar(
-          title:  Text('سورة ${args.title}'),
+          title:  Text('${AppLocalizations.of(context)!.sura} ${args.title}'),
         ),
         body: Column(
           children: [

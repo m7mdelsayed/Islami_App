@@ -16,14 +16,25 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int selectedIndex=0;
-  List<Widget>tabs=[QuranTab(),HadethTab(),TasbehTab(),RadioTab(),SettingTab()];
-  List<String>titles=['القرآن الكريم','الحديث الشريف','التسبيح','الراديو','الإعدادات'];
-
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    var settingsProvider =Provider.of<SettingsProvider>(context);
+    List<Widget> tabs = [
+      QuranTab(),
+      HadethTab(),
+      TasbehTab(),
+      RadioTab(),
+      SettingTab()
+    ];
+    List<String> titles = [
+      AppLocalizations.of(context)!.quran,
+      AppLocalizations.of(context)!.hadeth,
+      AppLocalizations.of(context)!.tasbeh,
+      AppLocalizations.of(context)!.radio,
+      AppLocalizations.of(context)!.settings
+    ];
+    var settingsProvider = Provider.of<SettingsProvider>(context);
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -33,16 +44,16 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       child: Scaffold(
         appBar: AppBar(
-          title:  Text(titles[selectedIndex]),
+          title: Text(titles[selectedIndex]),
         ),
         bottomNavigationBar: BottomNavigationBar(
-         currentIndex: selectedIndex,
-          onTap: (newIndex){
-           setState(() {
-             selectedIndex=newIndex;
-           });
+          currentIndex: selectedIndex,
+          onTap: (newIndex) {
+            setState(() {
+              selectedIndex = newIndex;
+            });
           },
-          items:  [
+          items: [
             BottomNavigationBarItem(
               backgroundColor: Theme.of(context).primaryColor,
               label: AppLocalizations.of(context)!.quran_single,
@@ -72,15 +83,16 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             BottomNavigationBarItem(
-              backgroundColor: Theme.of(context).primaryColor,
+                backgroundColor: Theme.of(context).primaryColor,
                 label: AppLocalizations.of(context)!.settings,
-              icon: const Icon(Icons.settings,size: 25,)
-            ),
+                icon: const Icon(
+                  Icons.settings,
+                  size: 25,
+                )),
           ],
         ),
-        body:tabs[selectedIndex] ,
+        body: tabs[selectedIndex],
       ),
     );
   }
-
 }

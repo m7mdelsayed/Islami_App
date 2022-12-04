@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/providers/settings_provider.dart';
 import 'package:islami_app/quran/sura_name_widget.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 import 'num_of_ayat.dart';
 
 class QuranTab extends StatelessWidget {
@@ -15,6 +17,24 @@ List<String>suraName=["الفاتحة","البقرة","آل عمران","الن�
   ,"المطفّفين","الإنشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد","الشمس","الليل","الضحى","الشرح"
   ,"التين","العلق","القدر","البينة","الزلزلة","العاديات","القارعة","التكاثر","العصر",
   "الهمزة","الفيل","قريش","الماعون","الكوثر","الكافرون","النصر","المسد","الإخلاص","الفلق","الناس"];
+List<String>suraNameEnglish=[
+  "Al-Fateha","Al-Bakara","Al-Emran","Al-Nesaa","Al-Maeda","Al-Anaam","Al-Aaraf",
+  "Al-Anfal","Al-Tawba","Younos","Hood","Yusuf","Al-Raad","Ibrahim","Al-Hejr",
+  "Al-Nahl","Al-Esraa","Al-Kahf","Mariam","Taha","Al-Anbiaa","Al-Haj","Al-Moamenon",
+  "Al-Nour","Al-Forkan","Al-Shoaraa","Al-Naml","Al-Kasas","Al-Ankabot","Al-Rom",
+  "Lokman","Al-Sajda","Al-Ahzab","Sabaa","Fater","Yassein","Al-Saffat","Sadd",
+  "Al-Zomar","Ghafer","Fosselat","Al-Shora","Al-Zokhrof","Al-Dokhan","Al-Jathia",
+  "Al-Ahkaf","Muhammad","Al-Fath","Al-Hojorat","kaf","Al-Zariat","Al-Tor","Al-Najm",
+  "Al-Kamar","Al-Rahman","Al-Wakea","Al-Hadid","Al-Mojadala","Al-Hashr","Momtahana",
+  "Al-Saf","Al-Jomoa","Al-Monafekon","Al-Taghabon","Al-Talak","Al-Tahreem","Al-Molk",
+  "Al-kalam","Al-Hakka","Al-Maarej","Nouh","Al-Jen","Al-Mozamil","Al-Modather",
+  "Al-Keiama","Al-Ensan","Al-Morssalat","Al-Nabaa","Al-Nazeat","Abasa","Al-Takwir",
+  "Al-Enfetar","Al-Motaffefin","Al-Enshekak","Al-Boroj","Al-Tarek","Al-Aala","Al-Ghashia",
+  "Al-Fajr","Al-Balad","Al-Shams","Al-Lail","Al-Doha","Al-Sharh","Al-Teen","Al-Alak",
+  "Al-kadr","Al-Baiena","Al-Zalzala","Al-Adiat","Al-Karea","Al-Takathor","Al-Asr",
+  "Al-Homaza","Al-Feel","Koraish","Al-Maaon","Al-Kawthar","Al-Kaferon","Al-Nasr",
+  "Al-Masad","Al-Ekhlas","Al-Falak","Al-Nas"
+];
 List<String>numOfAyah=['7','286','200','176','120','165','206','75','129',
   '109','123','111','43','52','99','128','111','110','98','135','112','78',
   '118','64','77','227','93','88','69','60','34','30','73','54','45','83',
@@ -27,6 +47,7 @@ List<String>numOfAyah=['7','286','200','176','120','165','206','75','129',
 
   @override
   Widget build(BuildContext context) {
+    var settingsProvider = Provider.of<SettingsProvider>(context);
     return Scaffold(
       body: Column(
         children: [
@@ -38,12 +59,17 @@ List<String>numOfAyah=['7','286','200','176','120','165','206','75','129',
             height: 2,
             color: Theme.of(context).accentColor,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children:  [
-              Text('عدد الآيات',style:Theme.of(context).textTheme.headline4,),
-              Text('إسم السورة',style: Theme.of(context).textTheme.headline4,),
-            ],
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical:10),
+            child: Row(
+              children:  [
+                const SizedBox(width: 15,),
+                Text(AppLocalizations.of(context)!.num_of_ayat,style:Theme.of(context).textTheme.headline6,),
+                const Spacer(),
+                Text(AppLocalizations.of(context)!.sura_name,style: Theme.of(context).textTheme.headline6,),
+                const Spacer(),
+              ],
+            ),
           ),
           Container(
             width: MediaQuery.of(context).size.width,
@@ -59,10 +85,15 @@ List<String>numOfAyah=['7','286','200','176','120','165','206','75','129',
                   NumOfAyat(numOfAyah[index]),
                   Container(
                     width: 2,
-                    height: 41,
+                    height: 60,
                     color: Theme.of(context).accentColor,
                   ),
-                  SuraNameWidget(suraName[index],index),
+                  SuraNameWidget(
+                      settingsProvider.isArabic()
+                          ? suraName[index]
+                          :suraNameEnglish[index]
+                      ,index
+                  ),
                 ],);
             }, separatorBuilder: (context, index) {
               return Container(

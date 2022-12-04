@@ -3,6 +3,7 @@
 "quran_single": "Quran",
 "hadeth":"Hadeth",
 "hadeth_single":"Hadeth",
+"alahadeth":"Alahadeth",
 "tasbeh":"Tasbeh",
 "radio":"Radio",
 "settings":"Settings",
@@ -11,5 +12,15 @@
 "light":"Light",
 "dark":"Dark",
 "english":"English",
-"arabic":"Arabic"
+"arabic":"Arabic",
+"sura_name":"Sura Name",
+"sura":"Sura",
+"num_of_ayat":"Num Of Ayat",
+"num_of_tasbehat":"Num Of Tasbehat",
+"subhan_allah":"Subhan Allah",
+"alhamd_le_allah":"Alhamd Le-Allah",
+"la_elah_ela_allah":"La Elah Ela Allah",
+"allah_akbar":"Allah Akbar",
+"la_hawl_wla_kwa":"La Hawl Wla Kwa Ela Be_Allah",
+"radio_text":"Quran Kareem Radio"
 }

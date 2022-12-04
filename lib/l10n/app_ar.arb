@@ -3,6 +3,7 @@
 "quran_single": "القرآن",
 "hadeth":"الحديث الشريف",
 "hadeth_single":"الحديث",
+"alahadeth":"الأحاديث",
 "tasbeh":"التسبيح",
 "radio":"الراديو",
 "settings":"الإعدادات",
@@ -11,5 +12,15 @@
 "light":"فاتح",
 "dark":"داكن",
 "english":"الإنجليزية",
-"arabic":"العربية"
+"arabic":"العربية",
+"sura_name":"إسم السورة",
+"sura":"سورة",
+"num_of_ayat":"عدد الآيات",
+"num_of_tasbehat":"عدد التسبيحات",
+"subhan_allah":"سبحان الله",
+"alhamd_le_allah":"الحمد لله",
+"la_elah_ela_allah":"لا إله إلا الله",
+"allah_akbar":"الله أكبر",
+"la_hawl_wla_kwa":"لا حول ولا قوة إلا بالله",
+"radio_text":"إذاعة القرآن الكريم"
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/hadeth/hadeth_details/hadeth_model.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'hadeth_widget.dart';
 
 class HadethTab extends StatefulWidget {
@@ -34,10 +34,13 @@ class _HadethTabState extends State<HadethTab> {
                   height: 2,
                   color: Theme.of(context).accentColor,
                 ),
-                 Text(
-                  'الأحاديث',
-                  style: Theme.of(context).textTheme.headline4,
+                 Padding(
+                   padding: const EdgeInsets.symmetric(vertical: 10),
+                   child: Text(
+                     AppLocalizations.of(context)!.alahadeth,
+                    style: Theme.of(context).textTheme.headline4,
                 ),
+                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: 2,
@@ -47,7 +50,7 @@ class _HadethTabState extends State<HadethTab> {
                   flex: 5,
                   child: ListView.separated(
                       itemBuilder: (context, index) {
-                        return HadethWidget(allHadethItems[index]);
+                        return HadethWidget(allHadethItems[index],index);
                       },
                       separatorBuilder: (context, index) {
                         return Container(
@@ -73,7 +76,7 @@ class _HadethTabState extends State<HadethTab> {
       String title = singleHadethLines[0];
       singleHadethLines.removeAt(0);
       String content = singleHadethLines.join('\n');
-      HadethModel hadeth = HadethModel(title: title, content: content);
+      HadethModel hadeth = HadethModel(title: title, content: content,index: i);
       allHadeth.add(hadeth);
     }
     setState(() {

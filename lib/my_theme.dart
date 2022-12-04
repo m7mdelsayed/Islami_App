@@ -15,8 +15,8 @@ class MyTheme{
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(18),
           topRight: Radius.circular(18),
-        )
-      )
+        ),
+      ),
     ),
     textTheme: const TextTheme(
       headline6: TextStyle(
@@ -31,6 +31,10 @@ class MyTheme{
         fontSize: 14,
         color: Colors.black,
       ),
+      subtitle1: TextStyle(
+      fontSize: 14,
+      color: Colors.black,
+    ),
     ),
     scaffoldBackgroundColor: Colors.transparent,
     appBarTheme: const AppBarTheme(
@@ -78,8 +82,8 @@ class MyTheme{
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(18),
               topRight: Radius.circular(18),
-            )
-        )
+            ),
+        ),
     ),
     textTheme: const TextTheme(
       headline6: TextStyle(
@@ -91,6 +95,10 @@ class MyTheme{
         color: Colors.white,
       ),
       subtitle2: TextStyle(
+        fontSize: 14,
+        color: Colors.white,
+      ),
+      subtitle1: TextStyle(
         fontSize: 14,
         color: Colors.white,
       ),

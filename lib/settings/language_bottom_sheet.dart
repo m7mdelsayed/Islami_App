@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/providers/settings_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LanguageBottomSheet extends StatefulWidget {
   @override
@@ -21,8 +22,9 @@ class _LanguageBottomSheet extends State<LanguageBottomSheet> {
                 settingsProvider.changeLanguage(const Locale('ar'));
               },
               child: settingsProvider.isArabic()
-                  ? getSelectedItem('Arabic')
-                  : getUnselectedItem('Arabic')),
+                  ? getSelectedItem(      AppLocalizations.of(context)!.arabic,
+              )
+                  : getUnselectedItem(AppLocalizations.of(context)!.arabic,)),
           const SizedBox(
             height: 12,
           ),
@@ -31,8 +33,8 @@ class _LanguageBottomSheet extends State<LanguageBottomSheet> {
                 settingsProvider.changeLanguage(const Locale('en'));
               },
               child: settingsProvider.isArabic()
-                  ? getUnselectedItem('English')
-                  : getSelectedItem('English')),
+                  ? getUnselectedItem(AppLocalizations.of(context)!.english,)
+                  : getSelectedItem(AppLocalizations.of(context)!.english,)),
         ],
       ),
     );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/providers/settings_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class ThemeBottomSheet extends StatefulWidget {
   @override
@@ -21,8 +23,8 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
                 settingsProvider.changeTheme(ThemeMode.light);
               },
               child: settingsProvider.isDarkMode()
-                  ? getUnselectedItem('Light')
-                  : getSelectedItem('Light')),
+                  ? getUnselectedItem(AppLocalizations.of(context)!.light,)
+                  : getSelectedItem(AppLocalizations.of(context)!.light,)),
           const SizedBox(
             height: 12,
           ),
@@ -31,8 +33,8 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
                 settingsProvider.changeTheme(ThemeMode.dark);
               },
               child: settingsProvider.isDarkMode()
-                  ? getSelectedItem('Dark')
-                  : getUnselectedItem('Dark')),
+                  ? getSelectedItem(AppLocalizations.of(context)!.dark,)
+                  : getUnselectedItem(AppLocalizations.of(context)!.dark)),
         ],
       ),
     );

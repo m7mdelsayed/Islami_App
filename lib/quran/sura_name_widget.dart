@@ -17,7 +17,7 @@ class SuraNameWidget extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 4),
         alignment: Alignment.center,
-        width: 80,
+        width: 140,
         child: Text(
           title,
           style: Theme.of(context).textTheme.headline6
