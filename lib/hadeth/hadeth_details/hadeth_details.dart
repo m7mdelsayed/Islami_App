@@ -49,12 +49,13 @@ class _HadethDetailsState extends State<HadethDetails> {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: Card(
+            color: Theme.of(context).colorScheme.surface,
             elevation: 10,
             margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(18),
               side: BorderSide(
-                color: Theme.of(context).accentColor,
+                color: Theme.of(context).colorScheme.onSurface,
                 width: 2,
               ),
             ),

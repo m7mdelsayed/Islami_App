@@ -3,7 +3,7 @@ import 'package:islami_app/hadeth/hadeth_details/hadeth_details.dart';
 import 'package:islami_app/home_screen.dart';
 import 'package:islami_app/my_theme.dart';
 import 'package:islami_app/providers/settings_provider.dart';
-import 'package:islami_app/quran/sura_details/Sura_details.dart';
+import 'package:islami_app/quran/sura_details/sura_details.dart';
 import 'package:islami_app/settings/settings_tab.dart';
 import 'package:islami_app/splash_screen.dart';
 import 'package:provider/provider.dart';

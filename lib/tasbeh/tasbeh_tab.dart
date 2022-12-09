@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/my_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/providers/settings_provider.dart';
 import 'package:provider/provider.dart';
@@ -32,33 +31,36 @@ class _TasbehTabState extends State<TasbehTab> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(
-            width: double.infinity,
-            height: MediaQuery.of(context).size.height * 0.48,
+          Expanded(
             child: Stack(
               children: [
                 Positioned(
                   left: MediaQuery.of(context).size.width * 0.5,
+                  top: MediaQuery.of(context).size.width * 0.01,
                   child: Image.asset('assets/images/sebha_header_light.png'),
                 ),
-                Center(
+                Positioned(
+                  left: MediaQuery.of(context).size.width * 0.23,
+                  top: MediaQuery.of(context).size.height * 0.11,
                   child: InkWell(
                     onTap: () {
                       setState(() {
                         counter++;
                         angle--;
-                        if (counter == 5) {
+                        if (counter == 33) {
                           counter = 0;
                           currentIndex++;
                           if (currentIndex >= dropDownItems.length) {
                             currentIndex = 0;
                           }
+                          azkar = dropDownItems[currentIndex];
                         }
                       });
                     },
                     child: Transform.rotate(
-                        angle: angle,
-                        child: Image.asset('assets/images/sebha_body_light.png')),
+                      angle: angle,
+                      child: Image.asset('assets/images/sebha_body_light.png'),
+                    ),
                   ),
                 ),
               ],
@@ -74,7 +76,9 @@ class _TasbehTabState extends State<TasbehTab> {
             decoration: BoxDecoration(
               color: Theme.of(context).primaryColor,
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: Theme.of(context).accentColor),
+              border: Border.all(
+                color: Theme.of(context).colorScheme.secondary,
+              ),
             ),
             child: Text(
               '$counter',
@@ -88,9 +92,12 @@ class _TasbehTabState extends State<TasbehTab> {
             padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
             margin: const EdgeInsets.symmetric(vertical: 15),
             decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
-                borderRadius: BorderRadius.circular(25),
-                border: Border.all(color: Theme.of(context).accentColor)),
+              color: Theme.of(context).primaryColor,
+              borderRadius: BorderRadius.circular(25),
+              border: Border.all(
+                color: Theme.of(context).colorScheme.secondary,
+              ),
+            ),
             child: DropdownButton(
               dropdownColor: Theme.of(context).primaryColor,
               underline: const SizedBox(),
@@ -100,7 +107,7 @@ class _TasbehTabState extends State<TasbehTab> {
               value: azkar.isNotEmpty ? azkar : dropDownItems[currentIndex],
               icon: Icon(Icons.keyboard_arrow_down,
                   color: settingsProvider.isDarkMode()
-                      ? Theme.of(context).accentColor
+                      ? Theme.of(context).colorScheme.secondary
                       : Colors.black),
               items: dropDownItems.map((String items) {
                 return DropdownMenuItem(
@@ -111,11 +118,10 @@ class _TasbehTabState extends State<TasbehTab> {
               onChanged: (String? newValue) {
                 setState(() {
                   azkar = newValue!;
-                  // dropDownItems[currentIndex] = newValue!;
+                  currentIndex = dropDownItems.indexOf(azkar);
                   counter = 0;
                 });
               },
-
             ),
           ),
         ],

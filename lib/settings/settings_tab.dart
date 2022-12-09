@@ -37,7 +37,7 @@ class _SettingTabState extends State<SettingTab> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(18),
                 border: Border.all(
-                  color: Theme.of(context).accentColor,
+                  color: Theme.of(context).colorScheme.secondary,
                   width: 1,
                 ),
               ),
@@ -68,7 +68,7 @@ class _SettingTabState extends State<SettingTab> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(18),
                 border: Border.all(
-                  color: Theme.of(context).accentColor,
+                  color: Theme.of(context).colorScheme.secondary,
                   width: 1,
                 ),
               ),

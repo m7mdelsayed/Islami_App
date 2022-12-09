@@ -7,7 +7,7 @@ class NumOfAyat extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      width: 40,
+      width: 50,
       child: Text(
         title,
         style: Theme.of(context).textTheme.headline6,

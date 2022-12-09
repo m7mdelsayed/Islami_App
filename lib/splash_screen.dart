@@ -9,13 +9,13 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var settingsProvider = Provider.of<SettingsProvider>(context);
-    Timer(const Duration(seconds: 5), () {
+    Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacementNamed(context, HomeScreen.routeName);
     });
     return Image.asset(
         settingsProvider.isDarkMode()
         ? 'assets/images/splash_image_dark.png'
-        : 'assets/images/splash_image_light.png'
+        : 'assets/images/splash_image_light.png',fit: BoxFit.fill,
     );
   }
 }

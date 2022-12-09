@@ -53,17 +53,17 @@ List<String>numOfAyah=['7','286','200','176','120','165','206','75','129',
         children: [
           Expanded(
               flex: 2,
-              child: Image.asset('assets/images/background_header.png')),
+              child: Image.asset('assets/images/background_header.png'),),
           Container(
             width: MediaQuery.of(context).size.width,
             height: 2,
-            color: Theme.of(context).accentColor,
+            color: Theme.of(context).colorScheme.secondary,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical:10),
             child: Row(
               children:  [
-                const SizedBox(width: 15,),
+                const SizedBox(width: 28,),
                 Text(AppLocalizations.of(context)!.num_of_ayat,style:Theme.of(context).textTheme.headline6,),
                 const Spacer(),
                 Text(AppLocalizations.of(context)!.sura_name,style: Theme.of(context).textTheme.headline6,),
@@ -74,7 +74,7 @@ List<String>numOfAyah=['7','286','200','176','120','165','206','75','129',
           Container(
             width: MediaQuery.of(context).size.width,
             height: 2,
-            color: Theme.of(context).accentColor,
+            color: Theme.of(context).colorScheme.secondary,
           ),
           Expanded(
             flex: 5,
@@ -86,7 +86,7 @@ List<String>numOfAyah=['7','286','200','176','120','165','206','75','129',
                   Container(
                     width: 2,
                     height: 60,
-                    color: Theme.of(context).accentColor,
+                    color: Theme.of(context).colorScheme.secondary,
                   ),
                   SuraNameWidget(
                       settingsProvider.isArabic()
@@ -100,7 +100,7 @@ List<String>numOfAyah=['7','286','200','176','120','165','206','75','129',
                 margin: const EdgeInsets.symmetric(horizontal: 25),
                 width: MediaQuery.of(context).size.width,
                 height: 1,
-                color: Theme.of(context).accentColor,
+                color: Theme.of(context).colorScheme.secondary,
               );
             },
                 itemCount: suraName.length),

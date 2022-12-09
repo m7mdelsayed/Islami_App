@@ -1,14 +1,25 @@
 import 'package:flutter/material.dart';
 
-class MyTheme{
-  static const Color lightPrimaryColor=Color(0xFFB7935F);
-  static const Color darkPrimaryColor=Color(0xFF1D2746);
-  static const Color darkSecondaryColor=Color(0xFFFACC1D);
+class MyTheme {
+  static const Color lightPrimaryColor = Color(0xFFB7935F);
+  static const Color darkPrimaryColor = Color(0xFF1D2746);
+  static const Color darkSecondaryColor = Color(0xFFFACC1D);
 
-  static final ThemeData lightTheme=ThemeData(
-    accentColor: lightPrimaryColor,
+  static final ThemeData lightTheme = ThemeData(
     primaryColor: lightPrimaryColor,
-    cardColor: Colors.white,
+    colorScheme: const ColorScheme(
+        brightness: Brightness.light,
+        primary: lightPrimaryColor,
+        onPrimary: Colors.white,
+        secondary: lightPrimaryColor,
+        onSecondary: Colors.white,
+        error: Colors.red,
+        onError: Colors.white,
+        background: Colors.transparent,
+        onBackground: Colors.black,
+        surface: Colors.white,
+        onSurface: lightPrimaryColor,
+    ),
     bottomSheetTheme: const BottomSheetThemeData(
       backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(
@@ -24,7 +35,7 @@ class MyTheme{
         color: Colors.black,
       ),
       headline4: TextStyle(
-        fontSize: 28 ,
+        fontSize: 28,
         color: Colors.black,
       ),
       subtitle2: TextStyle(
@@ -32,9 +43,9 @@ class MyTheme{
         color: Colors.black,
       ),
       subtitle1: TextStyle(
-      fontSize: 14,
-      color: Colors.black,
-    ),
+        fontSize: 14,
+        color: Colors.black,
+      ),
     ),
     scaffoldBackgroundColor: Colors.transparent,
     appBarTheme: const AppBarTheme(
@@ -52,38 +63,49 @@ class MyTheme{
     ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: lightPrimaryColor,
-      selectedItemColor:Colors.black ,
-      unselectedItemColor:Colors.white ,
+      selectedItemColor: Colors.black,
+      unselectedItemColor: Colors.white,
       selectedIconTheme: IconThemeData(
         color: Colors.black,
         size: 40,
-      ) ,
+      ),
       unselectedIconTheme: IconThemeData(
         color: Colors.white,
         size: 30,
       ),
       selectedLabelStyle: TextStyle(
         color: Colors.black,
-      ) ,
-      unselectedLabelStyle:  TextStyle(
+      ),
+      unselectedLabelStyle: TextStyle(
         color: Colors.white,
-      ) ,
+      ),
       showSelectedLabels: true,
       showUnselectedLabels: false,
     ),
   );
-  static final ThemeData darkTheme=ThemeData(
-    accentColor: darkSecondaryColor,
+  static final ThemeData darkTheme = ThemeData(
     primaryColor: darkPrimaryColor,
-    cardColor: darkPrimaryColor,
+    colorScheme: const ColorScheme(
+      brightness: Brightness.dark,
+      primary: darkPrimaryColor,
+      onPrimary: Colors.white,
+      secondary: darkSecondaryColor,
+      onSecondary: Colors.white,
+      error: Colors.red,
+      onError: Colors.white,
+      background: Colors.transparent,
+      onBackground: Colors.black,
+      surface: darkPrimaryColor,
+      onSurface: darkSecondaryColor,
+    ),
     bottomSheetTheme: const BottomSheetThemeData(
-        backgroundColor: darkPrimaryColor,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(18),
-              topRight: Radius.circular(18),
-            ),
+      backgroundColor: darkPrimaryColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(18),
+          topRight: Radius.circular(18),
         ),
+      ),
     ),
     textTheme: const TextTheme(
       headline6: TextStyle(
@@ -91,7 +113,7 @@ class MyTheme{
         color: Colors.white,
       ),
       headline4: TextStyle(
-        fontSize: 24 ,
+        fontSize: 24,
         color: Colors.white,
       ),
       subtitle2: TextStyle(
@@ -119,25 +141,24 @@ class MyTheme{
     ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: darkPrimaryColor,
-      selectedItemColor:darkSecondaryColor ,
-      unselectedItemColor:Colors.white ,
+      selectedItemColor: darkSecondaryColor,
+      unselectedItemColor: Colors.white,
       selectedIconTheme: IconThemeData(
         color: darkSecondaryColor,
         size: 40,
-      ) ,
+      ),
       unselectedIconTheme: IconThemeData(
         color: Colors.white,
         size: 30,
       ),
       selectedLabelStyle: TextStyle(
         color: darkSecondaryColor,
-      ) ,
-      unselectedLabelStyle:  TextStyle(
+      ),
+      unselectedLabelStyle: TextStyle(
         color: Colors.white,
-      ) ,
+      ),
       showSelectedLabels: true,
       showUnselectedLabels: false,
     ),
   );
-
 }

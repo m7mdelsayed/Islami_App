@@ -22,9 +22,12 @@ class _LanguageBottomSheet extends State<LanguageBottomSheet> {
                 settingsProvider.changeLanguage(const Locale('ar'));
               },
               child: settingsProvider.isArabic()
-                  ? getSelectedItem(      AppLocalizations.of(context)!.arabic,
-              )
-                  : getUnselectedItem(AppLocalizations.of(context)!.arabic,)),
+                  ? getSelectedItem(
+                      AppLocalizations.of(context)!.arabic,
+                    )
+                  : getUnselectedItem(
+                      AppLocalizations.of(context)!.arabic,
+                    )),
           const SizedBox(
             height: 12,
           ),
@@ -33,8 +36,12 @@ class _LanguageBottomSheet extends State<LanguageBottomSheet> {
                 settingsProvider.changeLanguage(const Locale('en'));
               },
               child: settingsProvider.isArabic()
-                  ? getUnselectedItem(AppLocalizations.of(context)!.english,)
-                  : getSelectedItem(AppLocalizations.of(context)!.english,)),
+                  ? getUnselectedItem(
+                      AppLocalizations.of(context)!.english,
+                    )
+                  : getSelectedItem(
+                      AppLocalizations.of(context)!.english,
+                    )),
         ],
       ),
     );
@@ -46,14 +53,13 @@ class _LanguageBottomSheet extends State<LanguageBottomSheet> {
       children: [
         Text(
           title,
-          style: Theme.of(context)
-              .textTheme
-              .headline4
-              ?.copyWith(color: Theme.of(context).accentColor),
+          style: Theme.of(context).textTheme.headline4?.copyWith(
+                color: Theme.of(context).colorScheme.secondary,
+              ),
         ),
         Icon(
           Icons.check,
-          color: Theme.of(context).accentColor,
+          color: Theme.of(context).colorScheme.secondary,
         ),
       ],
     );

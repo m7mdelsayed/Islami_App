@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/quran/sura_details/Sura_details.dart';
+import 'package:islami_app/quran/sura_details/sura_details.dart';
 import 'package:islami_app/quran/sura_details/sura_name_args.dart';
 
 class SuraNameWidget extends StatelessWidget {
