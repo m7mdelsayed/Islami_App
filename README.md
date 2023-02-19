@@ -12,7 +12,7 @@ Flutter application for reading Quran and Hadith build by using flutter basics w
 => Sura Details Screen                                                                                                                                                 
 => Hadith Details Screen                                                                                                                                               
 
-### Getting Started
+### Photos
 
 ![Screenshot (16)](https://user-images.githubusercontent.com/98716306/219905387-3b369358-ac75-4ff9-abf1-e3131b33d27d.png)
 ![Screenshot (17)](https://user-images.githubusercontent.com/98716306/219905391-b7f2e133-2cf9-443b-8c66-83b7c32a590c.png)
